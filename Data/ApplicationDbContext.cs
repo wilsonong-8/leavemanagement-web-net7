@@ -9,5 +9,9 @@ public class ApplicationDbContext : IdentityDbContext<Employee>
         : base(options)
     {
     }
+
+    public DbSet<LeaveType> LeaveTypes{ get; set; }
+    public DbSet<LeaveAllocation> LeaveAllocations{ get; set; }
+
 }
 
