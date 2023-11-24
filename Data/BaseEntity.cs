@@ -1,7 +1,7 @@
 ﻿using System;
 namespace LeaveManagement.Web.Data
 {
-	public partial class BaseEntity
+	public abstract class BaseEntity
 	{
         public int Id { get; set; }
 
