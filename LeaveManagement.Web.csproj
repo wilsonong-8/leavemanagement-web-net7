@@ -23,8 +23,12 @@
 
   <ItemGroup>
     <None Remove="Configurations\" />
+    <None Remove="Contracts\" />
+    <None Remove="Repositories\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Configurations\" />
+    <Folder Include="Contracts\" />
+    <Folder Include="Repositories\" />
   </ItemGroup>
 </Project>
