@@ -25,10 +25,14 @@
     <None Remove="Configurations\" />
     <None Remove="Contracts\" />
     <None Remove="Repositories\" />
+    <None Remove="Configurations\Entities\" />
+    <None Remove="Constants\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Configurations\" />
     <Folder Include="Contracts\" />
     <Folder Include="Repositories\" />
+    <Folder Include="Configurations\Entities\" />
+    <Folder Include="Constants\" />
   </ItemGroup>
 </Project>
