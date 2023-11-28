@@ -10,19 +10,23 @@ using AutoMapper;
 using LeaveManagement.Web.Models;
 using LeaveManagement.Web.Contracts;
 using Microsoft.AspNetCore.Authorization;
+using LeaveManagement.Web.Constants;
 
 namespace LeaveManagement.Web.Controllers
 {
-    [Authorize(Roles = "Administrator")]
+    [Authorize(Roles = Roles.Administrator)]
     public class LeaveTypeController : Controller
     {
         private readonly ILeaveTypeRepository leaveTypeRepository;
         private readonly IMapper mapper;
+        private readonly ILeaveAllocationRepository leaveAllocationRepository;
 
-        public LeaveTypeController(ILeaveTypeRepository leaveTypeRepository, IMapper mapper)
+        public LeaveTypeController(ILeaveTypeRepository leaveTypeRepository,
+            IMapper mapper, ILeaveAllocationRepository leaveAllocationRepository)
         {
             this.leaveTypeRepository = leaveTypeRepository;
             this.mapper = mapper;
+            this.leaveAllocationRepository = leaveAllocationRepository;
         }
 
         // GET: LeaveType
@@ -121,12 +125,19 @@ namespace LeaveManagement.Web.Controllers
         // POST: LeaveType/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public async Task<IActionResult>DeleteConfirmed(int id)
         {
             await leaveTypeRepository.DeleteAsync(id);
             return RedirectToAction(nameof(Index));
         }
 
-       
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult>AllocateLeave(int id)
+        {
+            await leaveAllocationRepository.LeaveAllocation(id);
+            return RedirectToAction(nameof(Index));
+        }
     }
 }
