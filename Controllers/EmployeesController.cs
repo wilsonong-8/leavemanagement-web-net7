@@ -68,16 +68,11 @@ namespace LeaveManagement.Web.Controllers
                 // TODO: Add update logic here
                 if(ModelState.IsValid)
                 {
-                    var leaveAllocation = await leaveAllocationRepository.GetAsync(model.Id);
-                    if(leaveAllocation == null)
+                    
+                    if(await leaveAllocationRepository.UpdateEmployeeAllocation(model) == true)
                     {
-                        return NotFound();
+                        return RedirectToAction(nameof(ViewAllocations), new { id = model.EmployeeId });
                     }
-                    leaveAllocation.Period = model.Period;
-                    leaveAllocation.NumberOfDays = model.NumberOfDays;
-                    await leaveAllocationRepository.UpdateAsync(leaveAllocation);
-
-                    return RedirectToAction(nameof(ViewAllocations), new { id = model.EmployeeId });
                 }
             }
             catch(Exception ex)
