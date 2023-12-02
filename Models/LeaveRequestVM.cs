@@ -18,7 +18,9 @@ namespace LeaveManagement.Web.Models
         public bool? Approved { get; set; }
         public bool Cancelled { get; set; }
 
-        EmployeeListVM Employee { get; set; }
+        public string? RequestEmployeeId { get; set; }
+
+        public EmployeeListVM Employee { get; set; }
     }
 }
 
