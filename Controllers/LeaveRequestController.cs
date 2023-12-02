@@ -200,5 +200,22 @@ namespace LeaveManagement.Web.Controllers
         {
           return (_context.LeaveRequests?.Any(e => e.Id == id)).GetValueOrDefault();
         }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Cancel(int id)
+        {
+            try
+            {
+                await leaveRequestRepository.CancelLeaveRequest(id);
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+            return RedirectToAction(nameof(MyLeave));
+        }
+
     }
 }
