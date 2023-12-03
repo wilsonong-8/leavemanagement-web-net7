@@ -29,6 +29,7 @@
     <None Remove="Constants\" />
     <None Remove="Services\" />
     <None Remove="Views\Employees\" />
+    <None Remove="Data\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Configurations\" />
@@ -38,5 +39,6 @@
     <Folder Include="Constants\" />
     <Folder Include="Services\" />
     <Folder Include="Views\Employees\" />
+    <Folder Include="Data\" />
   </ItemGroup>
 </Project>
