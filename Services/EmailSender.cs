@@ -1,11 +1,10 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Identity.UI.Services;
 using System.Net.Mail;
-using Microsoft.AspNetCore.Identity.UI.Services;
 
 namespace LeaveManagement.Web.Services
 {
-	public class EmailSender :IEmailSender
-	{
+    public class EmailSender : IEmailSender
+    {
         private string smtpServer;
         private int smtpPort;
         private string fromEmailAddress;
@@ -26,6 +25,7 @@ namespace LeaveManagement.Web.Services
                 Body = htmlMessage,
                 IsBodyHtml = true
             };
+
             message.To.Add(new MailAddress(email));
 
             using var client = new SmtpClient(smtpServer, smtpPort);
@@ -35,4 +35,3 @@ namespace LeaveManagement.Web.Services
         }
     }
 }
-

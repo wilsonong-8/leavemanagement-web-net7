@@ -34,7 +34,19 @@ namespace LeaveManagement.Web.Configuration.Entities
                      LastName = "User",
                      PasswordHash = hasher.HashPassword(null, "P@ssword1"),
                      EmailConfirmed = true
-                 }
+                 },
+                  new Employee
+                  {
+                      Id = "f536c75a-a460-4ecb-a949-58305ba11977",
+                      Email = "user2@gmail.com",
+                      NormalizedEmail = "USER2@GMAIL.COM",
+                      NormalizedUserName = "USER2@GMAIL.COM",
+                      UserName = "user2@gmail.com",
+                      FirstName = "John",
+                      LastName = "Doe",
+                      PasswordHash = hasher.HashPassword(null, "P@ssword1"),
+                      EmailConfirmed = true
+                  }
                 ); 
         }
     }
